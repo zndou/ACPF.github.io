@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Easy Control</title>
+<title>little Night Light</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="main.css">
@@ -46,7 +46,6 @@
 <script>
 	
 	var lightdata;
-	var celsius;
 	setup();
 	// Analog
 	function loop() {
@@ -80,7 +79,7 @@
             Rled=0;
             Gled=0;
             Bled=0;
-
+			console.log(Rled,Gled,Bled);
             document.getElementById("redvalue").innerHTML = Rled;
 		    document.getElementById("greenvalue").innerHTML = Gled;
 		    document.getElementById("bluevalue").innerHTML = Bled;
@@ -88,11 +87,9 @@
             document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
         
             if(cpf){
-			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
+			    cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
             }
         }
-		    
-        
 }
 		
 		
