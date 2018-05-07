@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<font id="title">Easy Control</font><p><br>
+<font id="title">Little Night Light</font><p><br>
 
 <div id="content" class="row">
 	<div class="col-sm-12  col-xs-12">
@@ -46,7 +46,6 @@
 <script>
 	
 	var lightdata;
-	var tempdata;
 	var celsius;
 	setup();
 	// Analog
@@ -75,15 +74,14 @@
 		
 		if(cpf){
 			cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
-        }
-		
+               }
 		}
 		
 	}
 	// cpf setup
 	function setup(){
 		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
+        cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 	}
 	
