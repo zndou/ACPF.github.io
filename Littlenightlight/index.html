@@ -75,15 +75,8 @@
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
             }
         }
-        else{
-
-            Rled=0;
-            Gled=0;
-            Bled=0;
-			document.getElementById("redvalue").innerHTML = Rled;
-		    document.getElementById("greenvalue").innerHTML = Gled;
-		    document.getElementById("bluevalue").innerHTML = Bled;
-
+        else if(lightdata>=500){
+            document.getElementById('.ledbar')=0;
             document.getElementById("showcolor").style.backgroundColor = black;
         
             if(cpf){
