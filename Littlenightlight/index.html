@@ -71,21 +71,18 @@
 		    document.getElementById("bluevalue").innerHTML = Bled;
 		
 		    document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
-		
+        }
+        else{
+            document.getElementById("showcolor").style.backgroundColor ='rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
+        }
 		    if(cpf){
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
-            }
-        else{
-
-            document.getElementById("showcolor").style.backgroundColor ='rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
-            
-            if(cpf){
-			    cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
-            }
-               }
-		}
+        }
+        
+}
 		
-	}
+		
+	
 	// cpf setup
 	function setup(){
 		if(cpf)
