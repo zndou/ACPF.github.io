@@ -71,6 +71,10 @@
 		    document.getElementById("bluevalue").innerHTML = Bled;
 		
 		    document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
+        
+            if(cpf){
+			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
+            }
         }
         else{
             Rled=0;
@@ -82,10 +86,12 @@
 		    document.getElementById("bluevalue").innerHTML = Bled;
 
             document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
-        }
-		    if(cpf){
+        
+            if(cpf){
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
+            }
         }
+		    
         
 }
 		
