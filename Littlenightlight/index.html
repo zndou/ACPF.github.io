@@ -75,12 +75,11 @@
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
             }
         }
-        else{
+        else if(lightdata>=500){
             Rled=0;
             Gled=0;
             Bled=0;
-			console.log(Rled,Gled,Bled);
-            document.getElementById("redvalue").innerHTML = Rled;
+			document.getElementById("redvalue").innerHTML = Rled;
 		    document.getElementById("greenvalue").innerHTML = Gled;
 		    document.getElementById("bluevalue").innerHTML = Bled;
 
