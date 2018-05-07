@@ -83,7 +83,7 @@
 		    document.getElementById("greenvalue").innerHTML = Gled;
 		    document.getElementById("bluevalue").innerHTML = Bled;
 
-            document.getElementById("showcolor").style.backgroundColor = black;
+            document.getElementById("showcolor").style.backgroundColor ='rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
         
             if(cpf){
 			    cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
