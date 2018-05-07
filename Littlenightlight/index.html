@@ -60,7 +60,8 @@
 	
 	// RGB
 	function changeColor() {
-        if(lightdata<500){
+        while(a){
+		if(lightdata<500){
             var Rled = document.getElementById("rled").value;
 		    var Gled = document.getElementById("gled").value;
 		    var Bled = document.getElementById("bled").value;
@@ -75,7 +76,8 @@
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
             }
         }
-        else if(lightdata>=500){
+        else{
+
             Rled=0;
             Gled=0;
             Bled=0;
@@ -89,6 +91,7 @@
 			    cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
             }
         }
+	}
 }
 		
 		
