@@ -73,7 +73,10 @@
 		    document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
         }
         else{
-            document.getElementById("showcolor").style.backgroundColor ='rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
+            Rled=0;
+            Gled=0;
+            Bled=0;
+            document.getElementById("showcolor").style.backgroundColor = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
         }
 		    if(cpf){
 			    cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
