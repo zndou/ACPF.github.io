@@ -54,11 +54,7 @@
 		if(cpf){
 	
 			lightdata = cpf.get("light sensor");
-			tempdata = cpf.get("temperature sensor");
-			celsius = toCelsius(tempdata);	
 			document.getElementById("lightvalue").innerHTML = lightdata;
-			document.getElementById("temperaturevalue").innerHTML = celsius;
-			
 		}
 		setTimeout(loop, 1000);
 	}
@@ -66,18 +62,21 @@
 	
 	// RGB
 	function changeColor() {
-		var Rled = document.getElementById("rled").value;
-		var Gled = document.getElementById("gled").value;
-		var Bled = document.getElementById("bled").value;
+        if(lightdata<500){
+            var Rled = document.getElementById("rled").value;
+		    var Gled = document.getElementById("gled").value;
+		    var Bled = document.getElementById("bled").value;
 		
-		document.getElementById("redvalue").innerHTML = Rled;
-		document.getElementById("greenvalue").innerHTML = Gled;
-		document.getElementById("bluevalue").innerHTML = Bled;
+		    document.getElementById("redvalue").innerHTML = Rled;
+		    document.getElementById("greenvalue").innerHTML = Gled;
+		    document.getElementById("bluevalue").innerHTML = Bled;
 		
-		document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
+		    document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
 		
 		if(cpf){
 			cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
+        }
+		
 		}
 		
 	}
