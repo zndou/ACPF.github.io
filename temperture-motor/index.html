@@ -25,6 +25,7 @@
         <h3>Degree:<spanid="degree">none</span>°</h3>
         <h3>Temperture:<span id="temp">none</span>℃</h3>
     </div>
+
     <script>
     var tempdata;
 	var celsius;
@@ -35,7 +36,7 @@
 	
 			tempdata = cpf.get("temperature sensor");
 			celsius = toCelsius(tempdata);	
-			document.getElementById("temperaturevalue").innerHTML = celsius;
+			document.getElementById("temp").innerHTML = celsius;
 
             if(celsius>=-30&&celsius<=50){
                 degree=Math.floor((180/80)*celusis+67.5);
@@ -59,9 +60,10 @@
     // cpf setup
 	function setup(){
         if(cpf)
-		    cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
+		    cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1, "INPUT"],["setPinMode", "digital", 4,"SERVO"]'); 
 		    //document.getElementById("demo").innerHTML += ret + "<br>";
 	}
+}
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </body>
