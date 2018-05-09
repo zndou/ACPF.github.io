@@ -38,7 +38,7 @@
 			celsius = toCelsius(tempdata);	
 			document.getElementById("temp").innerHTML = celsius;
 
-            if(celsius>=-30&&celsius<=50){
+            if(celsius>=-30 && celsius<=50){
                 degree=Math.floor((180/80)*celusis+67.5);
                 document.getElementById("pointer").style.transform="rorate("+ degree +"deg)";
                 document.getElementById("degree").innerHTML=degree;
