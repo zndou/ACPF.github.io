@@ -86,7 +86,7 @@
 			// RGB
 			function changeColor() {
 				if (lightdata < 500) {
-					/*var Rled = document.getElementById("rled").value;
+					var Rled = document.getElementById("rled").value;
 					var Gled = document.getElementById("gled").value;
 					var Bled = document.getElementById("bled").value;
 
@@ -98,16 +98,16 @@
 
 					if (cpf) {
 						cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
-					}*/
-					lighton.addEventListener('touchstart', function(event) {
+					}
+					/*lighton.addEventListener('touchstart', function(event) {
 					lighton.src= './images/light_on.png';
 					lightoff.src= './images/lightoff.png';
 					cpf.request('["digitalWrite", 2 , 1]');
-					});
+					});*/
 
 
 				} else {
-					/*Rled = 0;
+					Rled = 0;
 					Gled = 0;
 					Bled = 0;
 					document.getElementById("redvalue").innerHTML = Rled;
@@ -118,12 +118,12 @@
 
 					if (cpf) {
 						cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
-					}*/
-					lightoff.addEventListener('touchstart', function(event) {
+					}
+					/*lightoff.addEventListener('touchstart', function(event) {
 					lightoff.src= './images/light_off.png';
 					lighton.src= './images/lighton.png';
 					cpf.request('["digitalWrite", 2 , 0]');
-					});
+					});*/
 
 				}
 			}
