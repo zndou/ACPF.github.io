@@ -53,15 +53,16 @@
 	function toCelsius(value) {
 		var resistance = parseFloat((1023-value) * 10000 / value);
 		var temperature = 1 / (Math.log(resistance / 10000) / 3975+1 / 298.15) - 273.15;
-		
 		return temperature.toFixed(2);
 	}
 
     // cpf setup
 	function setup(){
-        if(cpf)
-		    cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1, "INPUT"],["setPinMode", "digital", 4,"SERVO"]'); 
+        if(cpf){
+            cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1, "INPUT"],["setPinMode", "digital", 4,"SERVO"]'); 
 		    //document.getElementById("demo").innerHTML += ret + "<br>";
+        }
+  
 	}
 
     </script>
