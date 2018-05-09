@@ -102,7 +102,7 @@
 					lighton.addEventListener('touchstart', function(event) {
 					lighton.src= './images/light_on.png';
 					lightoff.src= './images/lightoff.png';
-					cpf.request('["digitalWrite", 2 , 1]');
+					cpf.request('["digitalWrite", 13 , 1]');
 					});
 
 
@@ -122,7 +122,7 @@
 					lightoff.addEventListener('touchstart', function(event) {
 					lightoff.src= './images/light_off.png';
 					lighton.src= './images/lighton.png';
-					cpf.request('["digitalWrite", 2 , 0]');
+					cpf.request('["digitalWrite", 13 , 0]');
 					});
 
 				}
