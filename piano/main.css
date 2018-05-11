@@ -3,43 +3,43 @@
     height:720px;
 }
 #do{
-   position: absolute;
+   position: relative;
    width:135px;
    height:720px;
    float:left;
 }
 #re{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
  }
  #mi{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
  }
  #fa{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
  }
  #so{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
  }
  #la{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
  }
  #si{
-    position: absolute;
+    position: relative;
     width:135px;
     height:720px;
     float:left;
