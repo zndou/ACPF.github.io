@@ -7,47 +7,40 @@
    width:135px;
    height:720px;
    float:left;
-   background-image: url("img/Do.png")
 }
 #re{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/Re.png")
  }
  #mi{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/Mi.png")
  }
  #fa{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/Fa.png")
  }
  #so{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/So.png")
  }
  #la{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/La.png")
  }
  #si{
     position: absolute;
     width:135px;
     height:720px;
     float:left;
-    background-image: url("img/Si.png")
  }
