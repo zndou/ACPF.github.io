@@ -13,7 +13,7 @@
     <table>
         <tr class="key">
             <td id="do">
-                <img src="img/Do.png">
+                <img type="button" src="img/Do.png">
             </td>
             <td id="re">
                 <img src="img/Re.png">
@@ -44,5 +44,48 @@
             <td class="lab align-center">Si</td>
         </tr>
     </table>
+
+    <script>
+        var Do = document.getElementById("do");
+        var Re = document.getElementById("re");
+        var Mi = document.getElementById("mi");
+        var Fa = document.getElementById("fa");
+        var So = document.getElementById("so");
+        var La = document.getElementById("la");
+        var Si = document.getElementById("si");
+        /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];*/
+
+        Do.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 261]');
+        });
+        Re.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 293]');
+        });
+        Mi.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 329');
+        });
+        Fa.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 349]');
+        });
+        So.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 392]');
+        });
+        La.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 440]');
+        });
+        Si.addEventListener('touchstart', function(event) {
+		cpf.request('["digitalWrite", 5 , 493]');
+        });
+
+        /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];
+        function getbutton(){
+            for(i = 0; i <x.lenth; i++){
+                $('img[id]').onclick(function(){
+
+                });
+            }
+        }
+	});*/
+    </script>
 </body>
 </html>
