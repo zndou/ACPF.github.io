@@ -38,13 +38,8 @@
 			tempdata = cpf.get("temperature sensor");
 			celsius = toCelsius(tempdata);	
 			document.getElementById("temp").innerHTML = celsius;
-
-            if(celsius>=-30 && celsius<=50){
-                degree=Math.floor((180/80)*celusis+67.5);
-                document.getElementById("pointer").style.transform= "rorate("+ degree +"deg)";
-                document.getElementById("degree").innerHTML=degree;
-                cpf.request('["analogWrite",4,'+Math.abs(degree-180)+']');
-            }
+            changedegree();
+            
         }
 		setTimeout(loop, 1000);
 	}
@@ -57,6 +52,16 @@
 		return temperature.toFixed(2);
 	}
 
+    function changedegree(){
+        
+        if(celsius>=-30 && celsius<=50){
+                degree=Math.floor((180/80)*celusis+67.5);
+                document.getElementById("pointer").style.transform= "rorate("+ degree +"deg)";
+                document.getElementById("degree").innerHTML=degree;
+                cpf.request('["analogWrite",4,'+Math.abs(degree-180)+']');
+        }
+
+    }
     // cpf setup
 	function setup(){
         if(cpf){
