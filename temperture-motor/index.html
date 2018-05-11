@@ -45,7 +45,7 @@
                 document.getElementById("pointer").style.transform= "rorate("+ degree +"deg)";
                 document.getElementById("degree").innerHTML=degree;
                 cpf.request('["analogWrite",4,'+Math.abs(degree-180)+']');
-        }
+                }
             
         }
 		setTimeout(loop, 1000);
