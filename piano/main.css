@@ -2,12 +2,48 @@
     width:100%;
     height:50%;
 }
-button{
+#do{
    position: relative;
    width:15%;
-   height:150px;
+   height:50%;
    float:left;
 }
+#re{
+    position: relative;
+    width:14%;
+    height:50%;
+    float:left;
+ }
+ #mi{
+    position: relative;
+    width:14%;
+    height:50%;
+    float:left;
+ }
+ #fa{
+    position: relative;
+    width:14%;
+    height:50%;
+    float:left;
+ }
+ #so{
+    position: relative;
+    width:14%;
+    height:50%;
+    float:left;
+ }
+ #la{
+    position: relative;
+    width:14%;
+    height:50%;
+    float:left;
+ }
+ #si{
+    position: relative;
+    width:15%;
+    height:50%;
+    float:left;
+ }
  .lab{
     width: 14%; 
     float:left; 
