@@ -4,43 +4,43 @@
 }
 #do{
    position: relative;
-   width:14.4%;
+   width:64px;
    height:50%;
    float:left;
 }
 #re{
     position: relative;
-    width:14.4%;
+    width:64px;
     height:50%;
     float:left;
  }
  #mi{
     position: relative;
-    width:14.4%;
+    width:64px;
     height:50%;
     float:left;
  }
  #fa{
     position: relative;
-    width:14.4%;
+    width:64px;
     height:50%;
     float:left;
  }
  #so{
     position: relative;
-    width:14.4%;
+    width:64px;
     height:50%;
     float:left;
  }
  #la{
     position: relative;
-    width:114.4%;
+    width:64px;
     height:50%;
     float:left;
  }
  #si{
     position: relative;
-    width:14.4%;
+    width:64px;
     height:50%;
     float:left;
  }
