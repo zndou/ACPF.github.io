@@ -6,42 +6,49 @@
    position: relative;
    width:64px;
    height:50%;
+   margin-right:1px;
    float:left;
 }
 #re{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  #mi{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  #fa{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  #so{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  #la{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  #si{
     position: relative;
     width:64px;
     height:50%;
+    margin-right:1px;
     float:left;
  }
  .lab{
