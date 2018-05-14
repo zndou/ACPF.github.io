@@ -68,10 +68,6 @@
         
             }
             loop();
-            
-        
-                
-                /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];*/
         
             Do.addEventListener('touchstart', function(event) {
                 cpf.request('["tone_play", 5 , 261,100],["sleep",100]');
@@ -108,9 +104,9 @@
             
 
             function star(){
-                var starmusic = [1,1,5,5,6,6,5,4,4,3,3,2,2,1,
-                                 5,5,4,4,3,3,2,5,5,4,4,3,3,2,
-                                 1,1,5,5,6,6,5,4,4,3,3,2,2,1];
+                var starmusic = [1,1,5,5,6,6,8,4,4,3,3,2,2,9,
+                                 5,5,4,4,3,3,10,5,5,4,4,3,3,10,
+                                 1,1,5,5,6,6,8,4,4,3,3,2,2,9];
                 for(i=0;i < starmusic.length;i++){                   
                     switch(starmusic[i]){                        
                         case 1:
@@ -133,6 +129,15 @@
                         break;
                         case 7:
                         cpf.request('["tone_play", 5 , 493,100],["sleep",100]');
+                        break;
+                        case 8:
+                        cpf.request('["tone_play", 5 , 392,200],["sleep",100]');
+                        break;
+                        case 9:
+                        cpf.request('["tone_play", 5 , 261,200],["sleep",100]');
+                        break;
+                        case 10:
+                        cpf.request('["tone_play", 5 , 293,200],["sleep",100]');
                         break;
                     }
                     if((i+1)%7==0){
