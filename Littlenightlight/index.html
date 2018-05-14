@@ -101,11 +101,8 @@
 					if (cpf) {
 						cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
 					}
-					/*lighton.addEventListener('start', function(event) {
-					lighton.src= './images/light_on.png';
-					lightoff.src= './images/lightoff.png';
+
 					cpf.request('["digitalWrite", 2 , 1]');
-					//});*/
 
 
 				} else {
@@ -121,11 +118,7 @@
 					if (cpf) {
 						cpf.setChainableLed("0," + 0 + "," + 0 + "," + 0 + ";");
 					}
-					/*lightoff.addEventListener('touchstart', function(event) {
-					lightoff.src= './images/light_off.png';
-					lighton.src= './images/lighton.png';
 					cpf.request('["digitalWrite", 2 , 0]');
-					});*/
 
 				}
 			}
@@ -136,7 +129,7 @@
 			// cpf setup
 			function setup() {
 				if (cpf)
-					cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["grove_newChainableLED", 7, 8, 1]');
+					cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["grove_newChainableLED", 7, 8, 1],["setPinMode", "digital", 2,"OUTPUT"]');
 				//document.getElementById("demo").innerHTML += ret + "<br>";
 			}
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Piano</title>
+    <title>piano</title>
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
@@ -42,50 +42,121 @@
             <td class="lab align-center">So</td>
             <td class="lab align-center">La</td>
             <td class="lab align-center">Si</td>
-        </tr>
+        </tr>        
     </table>
-
+    <table>
+    <tr>
+        <td id="littlestarstar" >
+            <img type="button" src="img/play.png">
+        </td>
+    </tr>
+    </table>
     <script>
-        var Do = document.getElementById("do");
-        var Re = document.getElementById("re");
-        var Mi = document.getElementById("mi");
-        var Fa = document.getElementById("fa");
-        var So = document.getElementById("so");
-        var La = document.getElementById("la");
-        var Si = document.getElementById("si");
-        /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];*/
+    
+            setup();        
+        
+            var Do = document.getElementById("do");
+            var Re = document.getElementById("re");
+            var Mi = document.getElementById("mi");
+            var Fa = document.getElementById("fa");
+            var So = document.getElementById("so");
+            var La = document.getElementById("la");
+            var Si = document.getElementById("si");
+            var Lss = document.getElementById("littlestarstar"); 
 
-        Do.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 261]');
-        });
-        Re.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 293]');
-        });
-        Mi.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 329');
-        });
-        Fa.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 349]');
-        });
-        So.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 392]');
-        });
-        La.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 440]');
-        });
-        Si.addEventListener('touchstart', function(event) {
-		cpf.request('["digitalWrite", 5 , 493]');
-        });
-
-        /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];
-        function getbutton(){
-            for(i = 0; i <x.lenth; i++){
-                $('img[id]').onclick(function(){
-
-                });
+            function loop(){
+        
             }
-        }
-	});*/
-    </script>
+            loop();
+            
+        
+                
+                /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];*/
+        
+            Do.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 261,100],["sleep",100]');
+            });
+            Re.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 293,100],["sleep",100]');
+            });
+            Mi.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 329,100],["sleep",100]');
+            });
+            Fa.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 349,100],["sleep",100]');
+            });
+            So.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 392,100],["sleep",100]');
+            });
+            La.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 440,100],["sleep",100]');
+            });
+            Si.addEventListener('touchstart', function(event) {
+                cpf.request('["tone_play", 5 , 493,100],["sleep",100]');
+            });
+            Lss.addEventListener('touchstart', function(event) {                
+                if(Lss.src=='./img/play.png'){
+                   Lss.src= './img/pause.png';
+                    star();
+                }
+                else if(Lss.src=='./img/pause.png'){
+                    Lss.src= './img/play.png';
+                    cpf.request('["digitalWrite", 5 , 0]');                
+                }
+               
+            });
+            
+
+            function star(){
+                var starmusic = [1,1,5,5,6,6,5,4,4,3,3,2,2,1,
+                                 5,5,4,4,3,3,2,5,5,4,4,3,3,2,
+                                 1,1,5,5,6,6,5,4,4,3,3,2,2,1];
+                for(i=0;i < starmusic.length;i++){                   
+                    switch(starmusic[i]){                        
+                        case 1:
+                        cpf.request('["tone_play", 5 , 261,100],["sleep",100]');
+                        break;
+                        case 2:
+                        cpf.request('["tone_play", 5 , 293,100],["sleep",100]');
+                        break;
+                        case 3:
+                        cpf.request('["tone_play", 5 , 329,100],["sleep",100]');
+                        break;
+                        case 4:
+                        cpf.request('["tone_play", 5 , 349,100],["sleep",100]');
+                        break;
+                        case 5:
+                        cpf.request('["tone_play", 5 , 392,100],["sleep",100]');
+                        break;
+                        case 6:
+                        cpf.request('["tone_play", 5 , 440,100],["sleep",100]');
+                        break;
+                        case 7:
+                        cpf.request('["tone_play", 5 , 493,100],["sleep",100]');
+                        break;
+                    }
+                    if((i+1)%7==0){
+                        cpf.request('["sleep",100');
+                    }
+                }
+
+            }
+        
+                /*var x = new Array["Do","Re","Me","Fa","So","La","Si"];
+                function getbutton(){
+                    for(i = 0; i <x.lenth; i++){
+                        $('img[id]').onclick(function(){
+        
+                        });
+                    }
+                }
+            });*/
+            function setup(){
+                if(cpf){
+                    cpf.setPinMode('["resetPin"],["setPinMode","digital",5,"TONE"]');
+                }
+            }
+            </script>
 </body>
+
 </html>
