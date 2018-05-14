@@ -47,8 +47,8 @@
     <table>
     <tr>
 
-        <td>
-            <img src="img/play.png"  id="littlestarstar">        
+        <td id="littlestarstar">
+            <img src="img/play.png"  >        
         </td>
     </tr>
     </table>
@@ -92,12 +92,12 @@
                 cpf.request('["tone_play", 6 , 493,100],["sleep",100]');
             });
             Lss.addEventListener('touchstart', function(event) {                
-                if(Lss.src==lso.src){
-                   Lss.src= './img/pause.png';
+                if(document.getElementById("littlestarstar").src==lso.src){
+                    document.getElementById("littlestarstar").src= './img/pause.png';
                     star();
                }
-                else if(Lss.src==lsp.src){
-                    Lss.src= './img/play.png';
+                else if(document.getElementById("littlestarstar").src==lsp.src){
+                    document.getElementById("littlestarstar").src= './img/play.png';
                     cpf.request('["digitalWrite", 6 , 0]');                
                 }
                
