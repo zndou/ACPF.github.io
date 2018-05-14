@@ -79,7 +79,7 @@
                 cpf.request('["tone_play", 6 , 329,100],["sleep",100]');
             });
             Fa.addEventListener('touchstart', function(event) {
-                cpf.request('["tone_play", 6 , 349,100],["sleep",100]');
+                cpf.request('["tone_play", 6 , 349.2,100],["sleep",100]');
             });
             So.addEventListener('touchstart', function(event) {
                 cpf.request('["tone_play", 6 , 392,100],["sleep",100]');
@@ -158,7 +158,7 @@
             });*/
             function setup(){
                 if(cpf){
-                    cpf.setPinMode('["resetPin"],["setPinMode","digital",5,"TONE"]');
+                    cpf.setPinMode('["resetPin"],["setPinMode","digital",6,"TONE"]');
                 }
             }
             </script>
