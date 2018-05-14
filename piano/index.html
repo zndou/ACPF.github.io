@@ -46,8 +46,9 @@
     </table>
     <table>
     <tr>
-        <td id="littlestarstar" >
-            <img type="button" src="img/play.png">
+
+        <td>
+            <img src="img/play.png" type="button" id="littlestarstar">        
         </td>
     </tr>
     </table>
@@ -87,10 +88,10 @@
                 cpf.request('["tone_play", 6 , 493,100],["sleep",100]');
             });
             Lss.addEventListener('touchstart', function(event) {                
-                //if(Lss.src=='./img/play.png'){
+                if(Lss.src=='./img/play.png'){
                    Lss.src= './img/pause.png';
                     star();
-               /*}
+               }
                 else if(Lss.src=='./img/pause.png'){
                     Lss.src= './img/play.png';
                     cpf.request('["digitalWrite", 5 , 0]');                
