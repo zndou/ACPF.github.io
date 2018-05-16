@@ -32,6 +32,7 @@
             }
         }
         else if(Result.includes("好冷")){
+            cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
             cpf.request('["analogWrite"],6,0');
         }
     }
