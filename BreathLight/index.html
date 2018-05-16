@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>piano</title>
+    
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    </head>
+<body>
+    
+    <script>
+
+        setup();
+			
+		function loop() {
+				if (cpf) {
+
+					changeColor();
+                    changeSpeed();
+					
+				}
+				setTimeout(loop, 1000);
+		}
+			loop();
+
+    	function changeColor() {
+				for(i=0;i<=255;i++){
+					var Rled = i;
+					var Gled = i;
+					var Bled = i;
+
+					cpf.request('["grove_setColorRGB",0,RLED,GLED,BLED]');
+
+                }
+        }
+        function changeSpeed() {
+				for(i=0;i<=120;i++){
+                   
+                   cpf.request('["analogWrite",6,i]');
+
+					}
+
+                }
+        function setup(){
+                if(cpf){
+                    cpf.setPinMode('["resetPin"],["setPinMode","digital",6,"PWM",["grove_newChainableLED",7,8,1]]');
+                }
+            }
+    </script>
+</body>
+</html>
