@@ -40,7 +40,7 @@
 
         function setup() {
 				if (cpf)
-					cpf.setPinMode('["resetPin"],["grove_rgblcd_begin",16,2],["analogWrite"],6,0]');
+					cpf.setPinMode('["resetPin"],["grove_rgblcd_begin",16,2],["setPinMode","digital",6,"PWM"]');
 				//document.getElementById("demo").innerHTML += ret + "<br>";
 			}
     </script>
