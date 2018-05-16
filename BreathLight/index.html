@@ -46,8 +46,9 @@
 
 					cpf.request('["grove_setColorRGB",0,RLED,GLED,BLED]');
                 }
-                
-        }
+                a=0;
+            }
+        
         }
         function changeSpeed() {
 				if(b=0){
@@ -55,18 +56,17 @@
                    
                    cpf.request('["analogWrite",6,j]');
 					}
-                    b=1;
+                    b=1; 
                 }
+                
                 else{
                     for(j=255;j>=0;j--){
                    
                    cpf.request('["analogWrite",6,j]');
 					}
-                    
+                   b=0; 
                 }
-                
-
-                }
+            }
 
         function setup(){
                 if(cpf){
