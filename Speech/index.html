@@ -11,14 +11,17 @@
     </head>
 <body>
     <div>
-        <button>click</button>
+        <button id="clcikbtn">click</button>
     </div>
 
     <script>
-
+        var clickbtn=document.getElementById("clickbtn");
         setup();
 
-        cpf.initSpeechRecognition("cmm-Hant-TW");
+        cliclbtn.addEbentListener('click',function(event){
+            cpf.initSpeechRecognition("cmm-Hant-TW");
+        });
+        
         cpf.GetRecognitionListenStatus("true");
         function GetRecognizeResult(Result,Type){
             if(Result.includes("好熱")){
