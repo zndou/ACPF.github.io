@@ -10,8 +10,33 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     </head>
 <body>
-    
+    <div>
+        <button>click</button>
+    </div>
+
     <script>
+
+        setup();
+
+        cpf.initSpeechRecognition("cmm-Hant-TW");
+        cpf.GetRecognitionListenStatus("true");
+        function GetRecognizeResult(Result,Type){
+            if(Result.includes("好熱")){
+            for(i=0;i<255;i+=10){
+                cpf.request('["analogWrite"],6,'+i+']');
+            }
+        }
+        else if(Result.includes("好冷")){
+            cpf.request('["analogWrite"],6,0');
+        }
+    }
+
+
+        function setup() {
+				if (cpf)
+					cpf.setPinMode('["resetPin"],["grove_rgblcd_begin",16,2]');
+				//document.getElementById("demo").innerHTML += ret + "<br>";
+			}
     </script>
 </body>
 </html>
