@@ -10,7 +10,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     </head>
 <body>
+<div>
     
+</div>
+</table>
     <script>
         var a=0;
         var b=0;
@@ -31,11 +34,8 @@
 				
                 if(a=0){
                     for(i=0;i<=255;i++){
-					var Rled = i;
-					var Gled = i;
-					var Bled = i;
-
-					cpf.request('["grove_setColorRGB",0,RLED,GLED,BLED]');
+					
+					cpf.request('["grove_setColorRGB",0,i,i,i]');
                 }
                 a=1;
                 }else{
@@ -44,7 +44,7 @@
 					var Gled = i;
 					var Bled = i;
 
-					cpf.request('["grove_setColorRGB",0,RLED,GLED,BLED]');
+					cpf.request('["grove_setColorRGB",0,i,i,i]');
                 }
                 a=0;
             }
