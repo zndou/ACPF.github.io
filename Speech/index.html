@@ -25,6 +25,8 @@
         cpf.GetRecognitionListenStatus("true");
         function GetRecognizeResult(Result,Type){
             if(Result.includes("好熱")){
+            cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
+            
             for(i=0;i<255;i+=10){
                 cpf.request('["analogWrite"],6,'+i+']');
             }
