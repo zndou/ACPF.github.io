@@ -27,7 +27,7 @@
         function GetRecognizeResult(Result,Type){
             if(Result.includes("好熱")){
             document.getElementById("words").innerHTML=Result;
-            cpf.setSpeech("On","cmn-Hant-TW","風扇開啟",1,2);
+            cpf.SetSpeech("On","cmn-Hant-TW","風扇開啟",1,2);
             //cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
             
             for(i=0;i<255;i+=10){
@@ -36,7 +36,7 @@
         }
         else if(Result.includes("好冷")){
             cpf.getElementById("words").innerHTML=Result;
-            cpf.setSpeech("On","cmn-Hant-TW","風扇關閉",1,1);
+            cpf.SetSpeech("On","cmn-Hant-TW","風扇關閉",1,1);
             //cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
             cpf.request('["analogWrite"],6,0');
         }
