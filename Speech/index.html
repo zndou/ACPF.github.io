@@ -11,7 +11,7 @@
     </head>
 <body>
     <div>
-        <button id="clcikbtn">click</button>
+        <button id="clickbtn">click</button>
         <p id="words">none</p>
     </div>
 
@@ -19,6 +19,7 @@
         var clickbtn=document.getElementById("clickbtn");
         setup();
         cpf.request('["analogWrite",6,0]');
+
         clickbtn.addEventListener('click',function(event){
             cpf.initSpeechRecognition("cmm-Hant-TW");
         });
