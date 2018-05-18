@@ -35,7 +35,7 @@
             }
         }
         else if(Result.includes("好冷")){
-            cpf.getElementById("words").innerHTML=Result;
+            document.getElementById("words").innerHTML=Result;
             cpf.SetSpeech("On","cmn-Hant-TW","風扇關閉",1,1);
             //cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
             cpf.request('["analogWrite",6,0]');
