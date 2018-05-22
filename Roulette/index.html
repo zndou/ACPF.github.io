@@ -70,7 +70,6 @@
                         for (i = 0; i < 255; i += 10) {
                             cpf.request('["analogWrite",6,' + i + ']');
                         }
-                        //cpf.request('["analogWrite",6,0]');
                     } else if (celsius <= 30) {
                         cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",0,255,0]');
