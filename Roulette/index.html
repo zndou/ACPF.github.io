@@ -41,9 +41,7 @@
 
                         tempdata = cpf.get("temperature sensor");
                         celsius = toCelsius(tempdata);
-                        document.getElementById("temperaturevalue").innerHTML = celsius;
-
-
+                        
                         if (celsius > 35) {
                             cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                             cpf.request('["grove_rgblcd_clear"]');
