@@ -31,8 +31,7 @@
         function GetRecognizeResult(Result, Type) {
             if (Result.includes("開始偵測")) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "偵測開始", 1, 2);
-                cpf.initSpeechRecognition("cmn-Hant-TW");
-
+                
                 cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
 
                 if (cpf) {
