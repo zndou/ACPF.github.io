@@ -35,19 +35,11 @@
 
                 cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
 
-                function loop() {
-                    if (cpf) {
+                if (cpf) {
 
-                        tempdata = cpf.get("temperature sensor");
-                        celsius = toCelsius(tempdata);
-                        change(celsius);
+                    tempdata = cpf.get("temperature sensor");
+                    celsius = toCelsius(tempdata);
 
-
-                    }
-                    setTimeout(loop, 1000);
-                }
-                loop();
-                function change(celsius) {
                     if (celsius > 33) {
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",0,255,0]');
