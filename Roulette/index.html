@@ -23,7 +23,7 @@
         var tempdata = 0;
         setup();
         cpf.request('["analogWrite",6,0]');
-        cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
+        cpf.request('["grove_rgblcd_print",0,1,"目前溫度正常"]');
 
         clickbtn.addEventListener('click', function (event) {
             cpf.initSpeechRecognition("cmm-Hant-TW");
