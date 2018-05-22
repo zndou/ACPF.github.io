@@ -42,7 +42,7 @@
 
                     if (celsius > 33) {
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
-                        cpf.request('["grove_rgblcd_set_rgb",0,255,0]');
+                        cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
                         cpf.request('["grove_rgblcd_clear"]');
                         cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "危險!立刻降溫", 1, 2);
@@ -54,7 +54,7 @@
                     }
                     else if (celsius <= 33 && celsius > 30) {
                         cpf.setChainableLed("0," + "255" + "," + "200" + "," + "0" + ";");
-                        cpf.request('["grove_rgblcd_set_rgb",0,255,0]');
+                        cpf.request('["grove_rgblcd_set_rgb",255,200,0]');
                         cpf.request('["grove_rgblcd_clear"]');
                         cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意", 1, 2);
