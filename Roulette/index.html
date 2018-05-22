@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>speech</title>
 
-    <link rel="stylesheet" href="main.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 </head>
 
@@ -53,7 +53,7 @@
                             }
 
                         }
-                        else if (celsius <= 33 || celsius > 30) {
+                        else if (celsius <= 33 && celsius > 30) {
                             cpf.setChainableLed("0," + "255" + "," + "200" + "," + "0" + ";");
                             cpf.request('["grove_rgblcd_set_rgb",0,255,0]');
                             cpf.request('["grove_rgblcd_clear"]');
