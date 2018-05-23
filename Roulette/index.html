@@ -42,7 +42,7 @@
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
                         cpf.request('["grove_rgblcd_clear"]');
-                        cpf.request('["grove_rgblcd_print",0,1,"目前溫.0度:1","' + celsius + '"]');
+                        cpf.request('["grove_rgblcd_print",0,1,"' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "危險!溫度過高", 1, 2);
                         start();
 
@@ -50,7 +50,7 @@
                         cpf.setChainableLed("0," + "255" + "," + "200" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,200,0]');
                         cpf.request('["grove_rgblcd_clear"]');
-                        cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
+                        cpf.request('["grove_rgblcd_print",0,1,"' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意", 1, 2);
                         start();
 
@@ -58,7 +58,7 @@
                         cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
                         cpf.request('["grove_rgblcd_clear"]');
-                        cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
+                        cpf.request('["grove_rgblcd_print",0,1,"' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度涼爽 請安心", 1, 2);
 
                     }
