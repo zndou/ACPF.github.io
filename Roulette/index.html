@@ -31,7 +31,7 @@
         function GetRecognizeResult(Result, Type) {
             if (Result.includes("開始偵測")) {
                 cpf.SetSpeech("On", "cmn-Hant-TW", "偵測開始", 1, 2);
-                
+
                 cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
 
                 if (cpf) {
@@ -44,23 +44,15 @@
                         cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
                         cpf.request('["grove_rgblcd_clear"]');
                         cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
-                        cpf.SetSpeech("On", "cmn-Hant-TW", "危險!立刻降溫", 1, 2);
+                        cpf.SetSpeech("On", "cmn-Hant-TW", "危險!溫度過高 是否要開啟風扇", 1, 2);
 
-                        for (i = 0; i < 255; i += 10) {
-                            cpf.request('["analogWrite",6,' + i + ']');
-                        }
-
-                    }
-                    else if (celsius <= 33 && celsius > 30) {
+                    }else if (celsius <= 33 && celsius > 30) {
                         cpf.setChainableLed("0," + "255" + "," + "200" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,200,0]');
                         cpf.request('["grove_rgblcd_clear"]');
                         cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
-                        cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意", 1, 2);
+                        cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意 是否要開啟風扇", 1, 2);
 
-                        for (i = 0; i < 255; i += 10) {
-                            cpf.request('["analogWrite",6,' + i + ']');
-                        }
                     } else if (celsius <= 30) {
                         cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
@@ -68,9 +60,23 @@
                         cpf.request('["grove_rgblcd_print",0,1,"目前溫度:","' + celsius + '"]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度涼爽 請安心", 1, 2);
 
-                        cpf.request('["analogWrite",6,0]');
                     }
 
+                }
+
+                if (Result.includes("是")) {
+                    document.getElementById("words").innerHTML = Result;
+                    cpf.SetSpeech("On", "cmn-Hant-TW", "風扇開啟", 1, 2);
+
+                    for (i = 0; i < 255; i += 10) {
+                        cpf.request('["analogWrite",6,' + i + ']');
+                    }
+                }
+                else if (Result.includes("否" || "關閉")) {
+                    document.getElementById("words").innerHTML = Result;
+                    cpf.SetSpeech("On", "cmn-Hant-TW", "風扇關閉", 1, 1);
+
+                    cpf.request('["analogWrite",6,0]');
                 }
 
                 function toCelsius(value) {
@@ -78,8 +84,6 @@
                     var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
                     return temperature.toFixed(2);
                 }
-
-
             }
 
         }
