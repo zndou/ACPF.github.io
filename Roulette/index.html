@@ -37,7 +37,15 @@
 
                     tempdata = cpf.get("temperature sensor");
                     celsius = toCelsius(tempdata);
-                    
+                    choice(celsius);
+                }
+
+                function toCelsius(value) {
+                    var resistance = parseFloat((1023 - value) * 10000 / value);
+                    var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+                    return temperature.toFixed(2);
+                }
+                function choice(celsius) {
                     if (celsius > 33) {
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
@@ -64,16 +72,6 @@
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度涼爽 請安心", 1, 2);
 
                     }
-
-                }
-
-                function toCelsius(value) {
-                    var resistance = parseFloat((1023 - value) * 10000 / value);
-                    var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
-                    return temperature.toFixed(2);
-                }
-                function start() {
-                    
                 }
             }
         }
