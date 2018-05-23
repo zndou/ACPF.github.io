@@ -54,6 +54,7 @@
                         }
 
                         cpf.request('["grove_rgblcd_print",0,1,"溫度過高"]');
+                        cpf.request('["grove_rgblcd_display", 1]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "危險!溫度過高", 1, 2);
 
 
@@ -64,6 +65,7 @@
                             cpf.request('["analogWrite",6,' + i + ']');
                         }
                         cpf.request('["grove_rgblcd_print",0,1,"溫度稍高"]');
+                        cpf.request('["grove_rgblcd_display", 1]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意", 1, 2);
 
 
@@ -72,6 +74,7 @@
                         cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
                         cpf.request('["analogWrite",6,0]');
                         cpf.request('["grove_rgblcd_print",0,1,"溫度涼爽"]');
+                        cpf.request('["grove_rgblcd_display", 1]');
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度涼爽 請安心", 1, 2);
 
                     }
