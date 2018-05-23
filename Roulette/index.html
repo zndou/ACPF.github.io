@@ -38,21 +38,25 @@
                     tempdata = cpf.get("temperature sensor");
                     celsius = toCelsius(tempdata);
                     start();
+
+
                     if (celsius > 33) {
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
-                        cpf.request('["grove_rgblcd_clear"]');
-                        cpf.request('["grove_rgblcd_print",0,1,"' + celsius + '"]');
+                        for (i = 0; i < 255; i += 10) {
+                        cpf.request('["analogWrite",6,' + i + ']');
+                    }
                         cpf.SetSpeech("On", "cmn-Hant-TW", "危險!溫度過高", 1, 2);
-                        start();
+                        
 
                     } else if (celsius <= 33 && celsius > 30) {
                         cpf.setChainableLed("0," + "255" + "," + "200" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,200,0]');
-                        cpf.request('["grove_rgblcd_clear"]');
-                        cpf.request('["grove_rgblcd_print",0,1,"' + celsius + '"]');
+                        for (i = 0; i < 255; i += 10) {
+                        cpf.request('["analogWrite",6,' + i + ']');
+                    }
                         cpf.SetSpeech("On", "cmn-Hant-TW", "溫度稍高 請注意", 1, 2);
-                        start();
+                        
 
                     } else if (celsius <= 30) {
                         cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
@@ -71,9 +75,7 @@
                     return temperature.toFixed(2);
                 }
                 function start() {
-                    for (i = 0; i < 255; i += 10) {
-                        cpf.request('["analogWrite",6,' + i + ']');
-                    }
+                    
                 }
             }
         }
