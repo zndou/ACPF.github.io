@@ -33,8 +33,6 @@
 
                 cpf.setChainableLed("0," + "0" + "," + "0" + "," + "255" + ";");
 
-                if (cpf) {
-
                     tempdata = cpf.get("temperature sensor");
                     celsius = toCelsius(tempdata);
                     start();
@@ -76,7 +74,6 @@
                     }
                 }
             }
-        }
         function setup() {
             if (cpf)
                 cpf.setPinMode('["resetPin"],["grove_rgblcd_begin",16,2],["setPinMode","digital",6,"PWM"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]');
