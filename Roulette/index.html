@@ -37,9 +37,7 @@
 
                     tempdata = cpf.get("temperature sensor");
                     celsius = toCelsius(tempdata);
-                    start();
-
-
+                    
                     if (celsius > 33) {
                         cpf.setChainableLed("0," + "255" + "," + "0" + "," + "0" + ";");
                         cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
