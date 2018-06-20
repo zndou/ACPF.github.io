@@ -34,26 +34,26 @@
         var celsius;
         setup();
         cpf.request('["analogWrite",6,0]');
-
-        function loop() {
-            if (cpf) {
-
-                tempdata = cpf.get("temperature sensor");
-                celsius = toCelsius(tempdata);
-                document.getElementById("temperaturevalue").innerHTML = celsius;
-                choice(celsius);
-            }
-            setTimeout(loop, 5000);
-        }
-        loop();
-
-        function toCelsius(value) {
-            var resistance = parseFloat((1023 - value) * 10000 / value);
-            var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
-
-            return temperature.toFixed(2);
-        }
         autobtn.addEventListener('click', function (event) {
+            function loop() {
+                if (cpf) {
+
+                    tempdata = cpf.get("temperature sensor");
+                    celsius = toCelsius(tempdata);
+                    document.getElementById("temperaturevalue").innerHTML = celsius;
+                    choice(celsius);
+                }
+                setTimeout(loop, 5000);
+            }
+            loop();
+
+            function toCelsius(value) {
+                var resistance = parseFloat((1023 - value) * 10000 / value);
+                var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+
+                return temperature.toFixed(2);
+            }
+
             function choice(celsius) {
                 if (celsius > 27.5) {
                     for (i = 0; i < 255; i += 10)
