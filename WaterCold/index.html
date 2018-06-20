@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Watercold</title>
 </head>
 
@@ -14,45 +14,64 @@
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
-                <div class="analogclass">
-                    <img class="analogsensor" src="img/temp.png" />
-                    <span class="analogvalue" id="temperaturevalue">none</span>
-                </div>
+                <button id="sensor">偵測</button>
+                <p>
+                    <div class="analogclass">
+                        <img class="analogsensor" src="img/temp.png" />
+                        <span class="analogvalue" id="temperaturevalue">none</span>
+                    </div>
+                    <p>
+                        <button id="open">開</button>
+                        <button id="close">關</button>
             </div>
         </div>
     </div>
     <script>
+        var sensorbtn = document.getElementById("sensor");
+        var openbtn = document.getElementById("open");
+        var closebtn = document.getElementById("close");
         var tempdata;
         var celsius;
         setup();
-        function loop() {
-            if (cpf) {
+        cpf.request('["analogWrite",6,0]');
+        sensorbtn.addEventListener('click', function (event) {
 
-                tempdata = cpf.get("temperature sensor");
-                celsius = toCelsius(tempdata);
-                document.getElementById("temperaturevalue").innerHTML = celsius;
-                choice(celsius);
+            function loop() {
+                if (cpf) {
+
+                    tempdata = cpf.get("temperature sensor");
+                    celsius = toCelsius(tempdata);
+                    document.getElementById("temperaturevalue").innerHTML = celsius;
+                    choice(celsius);
+                }
+                setTimeout(loop, 5000);
             }
-            setTimeout(loop, 5000);
-        }
-        loop();
+            loop();
 
-        function choice(celsius) {
-            if (celsius > 25) {
-                for (i = 0; i < 255; i += 10)
-                    cpf.request('["analogWrite",6,' + i + ']');
+            function choice(celsius) {
+                if (celsius > 25) {
+                    for (i = 0; i < 255; i += 10)
+                        cpf.request('["analogWrite",6,' + i + ']');
+                }
+                else {
+                    cpf.request('["analogWrite",6,0]');
+                }
             }
-            else {
-                cpf.request('["analogWrite",6,0]');
+            function toCelsius(value) {
+                var resistance = parseFloat((1023 - value) * 10000 / value);
+                var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+
+                return temperature.toFixed(2);
             }
-        }
-        function toCelsius(value) {
-            var resistance = parseFloat((1023 - value) * 10000 / value);
-            var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+        });
 
-            return temperature.toFixed(2);
-        }
-
+        openbtn.addEventListener('click', function (event) {
+            for (i = 0; i < 255; i += 10)
+                cpf.request('["analogWrite",6,' + i + ']');
+        });
+        closebtn.addEventListener('click', function (event) {
+            cpf.request('["analogWrite",6,0]');
+        });
         // cpf setup
         function setup() {
             if (cpf)
