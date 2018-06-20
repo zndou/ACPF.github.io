@@ -14,7 +14,7 @@
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
-                <button id="sensor">偵測</button>
+                <button id="auto">自動</button>
                 <p>
                     <div class="analogclass">
                         <img class="analogsensor" src="img/temp.png" />
@@ -27,7 +27,7 @@
         </div>
     </div>
     <script>
-        var sensorbtn = document.getElementById("sensor");
+        var autobtn = document.getElementById("auto");
         var openbtn = document.getElementById("open");
         var closebtn = document.getElementById("close");
         var tempdata;
@@ -53,7 +53,7 @@
 
             return temperature.toFixed(2);
         }
-        sensorbtn.addEventListener('click', function (event) {
+        autobtn.addEventListener('click', function (event) {
             function choice(celsius) {
                 if (celsius > 27.5) {
                     for (i = 0; i < 255; i += 10)
