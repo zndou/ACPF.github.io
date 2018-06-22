@@ -34,6 +34,7 @@
         var celsius;
         setup();
         cpf.request('["analogWrite",6,0]');
+        cpf.request('["analogWrite",5,0]');
         autobtn.addEventListener('click', function (event) {
             function loop() {
                 if (cpf) {
@@ -56,26 +57,32 @@
 
             function choice(celsius) {
                 if (celsius > 27.5) {
-                    for (i = 0; i < 255; i += 10)
+                    for (i = 0; i < 255; i += 10) {
                         cpf.request('["analogWrite",6,' + i + ']');
+                    }
+                    cpf.request('["analogWrite",5,1]');
                 }
                 else {
                     cpf.request('["analogWrite",6,0]');
+                    cpf.request('["analogWrite",5,0]');
                 }
             }
         });
 
         openbtn.addEventListener('click', function (event) {
-            for (i = 0; i < 255; i += 10)
+            for (i = 0; i < 255; i += 10) {
                 cpf.request('["analogWrite",6,' + i + ']');
+            }
+            cpf.request('["analogWrite",5,1]');
         });
         closebtn.addEventListener('click', function (event) {
             cpf.request('["analogWrite",6,0]');
+            cpf.request('["analogWrite",5,0]');
         });
         // cpf setup
         function setup() {
             if (cpf)
-                cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1,"INPUT"],["setPinMode","digital",6,"PWM"]');
+                cpf.setPinMode('["resetPin"],["setPinMode", "analog", 1,"INPUT"],["setPinMode","digital",6,"PWM"],["setPinMode","digital",5,"SERVO"]');
         }
     </script>
 </body>
