@@ -62,10 +62,10 @@
             function choice(celsius) {
                 //溫度大於27.5度風扇,抽水馬達自動開啟
                 if (celsius > 27.5) {
+                    cpf.request('["analogWrite",4,1]');//抽水馬達開啟
                     for (i = 0; i < 255; i += 10) {
                         cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
-                    cpf.request('["analogWrite",4,1]');//抽水馬達開啟
                 }
                 else {
                     cpf.request('["analogWrite",6,0]');//風扇關閉
@@ -75,10 +75,10 @@
         });
         /*App按鈕手動啟動*/
         openbtn.addEventListener('click', function (event) {
+            cpf.request('["analogWrite",4,1]');//抽水馬達開啟
             for (i = 0; i < 255; i += 10) {
                 cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
             }
-            cpf.request('["analogWrite",4,1]');//抽水馬達開啟
         });
         /*App按鈕手動關閉*/
         closebtn.addEventListener('click', function (event) {
