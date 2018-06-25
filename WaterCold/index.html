@@ -60,7 +60,7 @@
 
             function choice(celsius) {
                 //溫度大於27.5度風扇,LCD顯示器做提醒
-                if (celsius > 26.5) {
+                if (celsius > 27.5) {
                     for (i = 0; i < 255; i += 10) {
                         cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
