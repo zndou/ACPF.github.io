@@ -65,13 +65,13 @@
                         cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
                     cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
-                    cpf.request('["grove_rgblcd_print",0,1,"水袋溫度過高，請更換"]');
+                    cpf.request('["grove_rgblcd_print",0,1,"water is too hot,please change"]');
                     cpf.request('["grove_rgblcd_display", 1]');
                 }
                 else {
                     cpf.request('["analogWrite",6,0]');//風扇關閉
                     cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
-                    cpf.request('["grove_rgblcd_print",0,1,"水袋正常運作中"]');
+                    cpf.request('["grove_rgblcd_print",0,1,"water is cool"]');
                     cpf.request('["grove_rgblcd_display", 1]');
 
                 }
