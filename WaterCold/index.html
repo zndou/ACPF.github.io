@@ -37,7 +37,6 @@
         var celsius;
         setup();
         cpf.request('["analogWrite",6,0]');//風扇初始關閉狀態
-        cpf.request('["grove_rgblcd_clear"]');
         autobtn.addEventListener('click', function (event) {
             function loop() {
                 if (cpf) {
@@ -65,12 +64,14 @@
                         cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
                     cpf.request('["grove_rgblcd_set_rgb",255,0,0]');
+                    cpf.request('["grove_rgblcd_clear"]');
                     cpf.request('["grove_rgblcd_print",0,1,"water is too hot,please change"]');
                     cpf.request('["grove_rgblcd_display", 1]');
                 }
                 else {
                     cpf.request('["analogWrite",6,0]');//風扇關閉
                     cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
+                    cpf.request('["grove_rgblcd_clear"]');
                     cpf.request('["grove_rgblcd_print",0,1,"water is cool"]');
                     cpf.request('["grove_rgblcd_display", 1]');
 
