@@ -39,3 +39,19 @@ html {
 	margin-top: 44px;
 	margin-right: 40px;
 }
+#auto{
+	width:50%;
+	font-size:20px;
+}
+#open{
+	width:50%;
+	height:25px;
+	font-size:20px;
+	float:left;
+}
+#open{
+	width:50%;
+	height:25px;
+	font-size:20px;
+	float:right;
+}
