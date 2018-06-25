@@ -36,8 +36,8 @@
         var tempdata;
         var celsius;
         setup();
-        cpf.request('["grove_rgblcd_set_rgb",0,0,0]');
-        cpf.request('["grove_rgblcd_clear"]');
+        cpf.request('["grove_rgblcd_set_rgb",0,0,0]'); //LCD燈不顯示
+        cpf.request('["grove_rgblcd_clear"]');//LCD面板清除
         cpf.request('["analogWrite",6,0]');//風扇初始關閉狀態
         autobtn.addEventListener('click', function (event) {
             function loop() {
@@ -66,16 +66,16 @@
                         cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
                     cpf.request('["grove_rgblcd_set_rgb",255,0,0]'); //LCD燈紅色警告
-                    cpf.request('["grove_rgblcd_clear"]');  //面板文字清楚
-                    cpf.request('["grove_rgblcd_print",0,1,"water is too hot"]');
-                    cpf.request('["grove_rgblcd_display", 1]');
+                    cpf.request('["grove_rgblcd_clear"]');  //面板文字清除
+                    cpf.request('["grove_rgblcd_print",0,1,"water is too hot"]'); //讀取警告文字
+                    cpf.request('["grove_rgblcd_display", 1]'); //顯示到LCD燈上
                 }
                 else {
                     cpf.request('["analogWrite",6,0]');//風扇關閉
-                    cpf.request('["grove_rgblcd_set_rgb",0,0,255]');
-                    cpf.request('["grove_rgblcd_clear"]');
-                    cpf.request('["grove_rgblcd_print",0,1,"water is cool"]');
-                    cpf.request('["grove_rgblcd_display", 1]');
+                    cpf.request('["grove_rgblcd_set_rgb",0,0,255]');  //顯示藍色燈，表示溫度適宜
+                    cpf.request('["grove_rgblcd_clear"]'); //清除面板文字
+                    cpf.request('["grove_rgblcd_print",0,1,"water is cool"]');  //讀取溫度適宜提醒
+                    cpf.request('["grove_rgblcd_display", 1]');  //顯示到LCD燈上
 
                 }
             }
