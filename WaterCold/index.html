@@ -37,8 +37,8 @@
         var celsius;
         setup();
         cpf.request('["analogWrite",6,0]');//風扇初始關閉狀態
+        cpf.request('["grove_rgblcd_clear"]');
         autobtn.addEventListener('click', function (event) {
-            cpf.request('["grove_rgblcd_clear"]');
             function loop() {
                 if (cpf) {
 
