@@ -35,6 +35,7 @@
         setup();
         cpf.request('["analogWrite",6,0]');
         cpf.request('["analogWrite",4,0]');
+        cpf.request('["analogWrite",2,1]');
         autobtn.addEventListener('click', function (event) {
             function loop() {
                 if (cpf) {
