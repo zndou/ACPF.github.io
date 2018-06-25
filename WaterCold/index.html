@@ -14,6 +14,7 @@
     <div id="content" class="row">
         <div class="col-sm-12  col-xs-12">
             <div id="analog" class="col-sm-6 col-xs-12">
+                <!--自動偵測按鈕-->
                 <button id="auto">自動</button>
                 <p>
                     <div class="analogclass">
@@ -21,7 +22,9 @@
                         <span class="analogvalue" id="temperaturevalue">none</span>
                     </div>
                     <p>
+                        <!--單獨啟動按鈕-->
                         <button id="open">開</button>
+                        <!--單獨關閉按鈕-->
                         <button id="close">關</button>
             </div>
         </div>
@@ -33,52 +36,54 @@
         var tempdata;
         var celsius;
         setup();
-        cpf.request('["analogWrite",6,0]');
-        cpf.request('["analogWrite",4,0]');
+        cpf.request('["analogWrite",6,0]');//風扇初始關閉狀態
+        cpf.request('["analogWrite",4,0]');//抽水馬達初始關閉狀態
         cpf.request('["analogWrite",2,1]');
         autobtn.addEventListener('click', function (event) {
             function loop() {
                 if (cpf) {
 
-                    tempdata = cpf.get("temperature sensor");
-                    celsius = toCelsius(tempdata);
-                    document.getElementById("temperaturevalue").innerHTML = celsius;
-                    choice(celsius);
+                    tempdata = cpf.get("temperature sensor");//取得當前感測器資料
+                    celsius = toCelsius(tempdata);//取得 function toCelsius數值
+                    document.getElementById("temperaturevalue").innerHTML = celsius;//temperaturevalue取得溫度元素
+                    choice(celsius);//執行function celsius
                 }
-                setTimeout(loop, 3000);
+                setTimeout(loop, 3000);//每3秒測試一次
             }
             loop();
 
             function toCelsius(value) {
-                var resistance = parseFloat((1023 - value) * 10000 / value);
-                var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;
+                var resistance = parseFloat((1023 - value) * 10000 / value);//字串轉換浮點數 
+                var temperature = 1 / (Math.log(resistance / 10000) / 3975 + 1 / 298.15) - 273.15;//數值運算
 
-                return temperature.toFixed(2);
+                return temperature.toFixed(2);//四捨五入小數點至第2位
             }
 
             function choice(celsius) {
+                //溫度大於27.5度風扇,抽水馬達自動開啟
                 if (celsius > 27.5) {
                     for (i = 0; i < 255; i += 10) {
-                        cpf.request('["analogWrite",6,' + i + ']');
+                        cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
                     }
-                    cpf.request('["analogWrite",4,1]');
+                    cpf.request('["analogWrite",4,1]');//抽水馬達開啟
                 }
                 else {
-                    cpf.request('["analogWrite",6,0]');
-                    cpf.request('["analogWrite",4,0]');
+                    cpf.request('["analogWrite",6,0]');//風扇關閉
+                    cpf.request('["analogWrite",4,0]');//抽水馬達關閉
                 }
             }
         });
-
+        /*App按鈕手動啟動*/
         openbtn.addEventListener('click', function (event) {
             for (i = 0; i < 255; i += 10) {
-                cpf.request('["analogWrite",6,' + i + ']');
+                cpf.request('["analogWrite",6,' + i + ']');//風扇漸快
             }
-            cpf.request('["analogWrite",4,1]');
+            cpf.request('["analogWrite",4,1]');//抽水馬達開啟
         });
+        /*App按鈕手動關閉*/
         closebtn.addEventListener('click', function (event) {
-            cpf.request('["analogWrite",6,0]');
-            cpf.request('["analogWrite",4,0]');
+            cpf.request('["analogWrite",6,0]');//風扇關閉
+            cpf.request('["analogWrite",4,0]');//抽水馬達關閉
         });
         // cpf setup
         function setup() {
